@@ -1,20 +1,12 @@
 [dependencies]
-axum = { version = "0.7", features = ["json", "macros"] }          # Web server + JSON extraction (Axum 0.7 is stable/fast in 2026)
-tokio = { version = "1", features = ["full"] }                     # Async runtime (required by Axum)
-serde = { version = "1.0", features = ["derive"] }                 # JSON serialize/deserialize
-serde_json = "1.0"                                                 # JSON value handling
-reqwest = { version = "0.12", features = ["json"] }                # HTTP client to call Alpaca API
-tower-http = { version = "0.5", features = ["trace", "cors"] }     # Middleware: logging, CORS if needed
-tracing = "0.1"                                                    # Better logging (structured)
-tracing-subscriber = { version = "0.3", features = ["env-filter"] }# Pretty console logs
-dotenvy = "0.15"                                                   # Load .env file for secrets (API keys)
-clap = { version = "4.5", features = ["derive"] }                  # Optional: CLI args for config/port
+axum = { version = "0.7", features = ["json", "macros"] }          
+tokio = { version = "1", features = ["full"] }                     
+serde = { version = "1.0", features = ["derive"] }                 
+serde_json = "1.0"                                                 
+reqwest = { version = "0.12", features = ["json"] }               
+tower-http = { version = "0.5", features = ["trace", "cors"] }     
+tracing = "0.1"                                                    
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+dotenvy = "0.15"                                                  
+clap = { version = "4.5", features = ["derive"] }                 
 
-# Alpaca-specific client (pick ONE of these — I recommend the most active/maintained in 2026)
-# Option A: alpaca_api_client (unofficial but updated ~2025, good docs)
-alpaca_api_client = "0.6"   # Or latest version from crates.io
-
-# Option B: apca (async-focused, solid alternative if you prefer raw control)
-# apca = "0.x"  # Check latest on crates.io
-
-# If neither fits perfectly, you can skip dedicated crates and use raw reqwest + serde (shown in earlier example)
