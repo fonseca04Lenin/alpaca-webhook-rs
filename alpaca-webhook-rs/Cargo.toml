@@ -1,0 +1,31 @@
+
+[package]
+name = "alpaca-webhook-rs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Elvin Fonseca <Leninfonseca04@gmail.com"]
+description = "Webhook receiver for Alpaca trading automation"
+
+[dependencies]
+# Web server framework (async, modern, fast)
+axum = { version = "0.7", features = ["json", "macros"] }
+
+# Async runtime (required by Axum)
+tokio = { version = "1", features = ["full"] }
+
+# JSON serialization/deserialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# HTTP client to call Alpaca API
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+
+# Middleware for logging, CORS, etc.
+tower-http = { version = "0.5", features = ["trace", "cors"] }
+
+# Structured logging (better than println!)
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+
+# Load .env file for API keys
+dotenvy = "0.15"

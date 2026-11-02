@@ -16,3 +16,9 @@ Cargo.lock
 # OS
 .DS_Store
 Thumbs.db
+
+# Secrets and build output
+.env
+.env.*
+!.env.example
+**/target/
